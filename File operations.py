@@ -10,8 +10,15 @@
 
 
 # Handle read and write both
-f = open("harry.txt", "r+")
-print(f.read())
-f.write("thank you")
-f.close()
+# f = open("harry.txt")
+# print(f.readlines())
+# f.close()
 
+
+# with block for ile operations
+# with open("harry.txt") as f:
+#     print(f.readlines())
+
+# f=open("harry.txt")
+# print(f.readlines())
+# f.close()
