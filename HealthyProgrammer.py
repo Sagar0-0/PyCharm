@@ -19,7 +19,7 @@ while True:
 
         # Resuming the music
         mixer.music.unpause()
-    elif query=='s':
+    elif query == 's':
         mixer.music.play()
     elif query == 'e':
 

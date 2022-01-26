@@ -7,7 +7,7 @@ mixer.music.play()
 # infinite loop
 while True:
 
-    print("Press 'p' to pause, 'u' to unpause, 's' to start again")
+    print("Press 'p' to pause, 'u' to unpause, 'r' to re-start")
     print("Press 'e' to exit the program")
     query = input()
 
@@ -19,7 +19,7 @@ while True:
 
         # Resuming the music
         mixer.music.unpause()
-    elif query=='s':
+    elif query=='r':
         mixer.music.play()
     elif query == 'e':
 

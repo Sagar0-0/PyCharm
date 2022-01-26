@@ -6,6 +6,7 @@ def myfunction(first, *args, **kwargs):
     for key, value in kwargs.items():
         print(f"{key} is a {value}")
 
+
 myfunction(0)
 args = ('a', 'b', 'c', 'd', 'e', 1)
 myfunction(0, *args)
