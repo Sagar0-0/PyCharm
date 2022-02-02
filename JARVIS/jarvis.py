@@ -62,7 +62,7 @@ def sendMail(to, content):
 
 
 if __name__ == '__main__':
-    # wishMe()
+    wishMe()
     while True:
         query = takeCommand().lower()
         query=query.replace('jarvis','')
@@ -72,12 +72,16 @@ if __name__ == '__main__':
             results = wikipedia.summary(query, sentences=2)
             speak(f"According to wikipedia: {results}")
         elif 'open youtube' in query:
+            speak("Opening Youtube..")
             webbrowser.open('https://www.youtube.com')
         elif 'open google' in query:
+            speak("Opening Google..")
             webbrowser.open('https://www.google.com')
         elif 'open stack overflow' in query:
+            speak("Opening Stack Overflow..")
             webbrowser.open('https://www.stackoverflow.com')
         elif 'play music' in query:
+            speak("Playing Music..")
             music_dir = 'C:\\Users\\sagar\\OneDrive\\Documents'
             songs = os.listdir(music_dir)
             os.startfile(os.path.join(music_dir, songs[0]))
@@ -99,7 +103,7 @@ if __name__ == '__main__':
                 speak("Can't send your message\nPlease try again after sometime.")
         elif 'my' in query and 'name' in query:
             speak("Your name is Sagar Malhotra")
-        elif 'exit' in query or 'quit' in query or 'sleep' in query or 'power off' in query:
+        elif 'exit' in query or 'quit' in query or 'sleep' in query or 'power off' in query or 'so jao' in query:
             speak('Powering off...')
             break
         else:
