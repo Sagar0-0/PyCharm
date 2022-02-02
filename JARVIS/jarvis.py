@@ -65,7 +65,7 @@ if __name__ == '__main__':
     wishMe()
     while True:
         query = takeCommand().lower()
-        query=query.replace('jarvis','')
+        query = query.replace('jarvis', '')
         if 'wikipedia' in query:
             speak("Searching Wikipedia..")
             query = query.replace('wikipedia', '')
@@ -108,7 +108,8 @@ if __name__ == '__main__':
             break
         else:
             if query != '':
-                query=query.replace('search google','')
+                query = query.replace('google', '')
+                query = query.replace('search', '')
                 speak(f"Searching google for {query}")
                 query = query.replace(' ', '+')
                 webbrowser.open(f'https://www.google.com/search?q={query}')
