@@ -1,0 +1,25 @@
+1. Searches anything on wikipedia.
+    Keyword - 'wikipedia'
+2. Opens Brave Browser
+    keyword - 'open browser'
+3. Opens Android Studio
+    keyword - 'open android studio'
+4. Opens any official website
+    keyword - 'open {website-name}'
+5. Plays music in a custom folder
+    keyword - 'play music'
+6. Tells time
+    keyword- 'time'
+7. Sends email to my account
+    keyword - 'email to sagar'
+    #requires permission acccess for current mail id
+8. Tells my name
+    keyword - 'my' and 'name'
+9. Gives badass introduction
+    keyword - 'intro'/'introduction'
+10. Powers off
+    keyword - 'exit'/'quit'/'sleep'/'power off'/'so jao'
+11. Tells a joke
+    keyword- 'joke'
+12. Will search anything else on google
+    keyword -  none

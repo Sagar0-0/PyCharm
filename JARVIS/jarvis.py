@@ -43,9 +43,10 @@ def takeCommand():
     try:
         print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
-        print(f"User said: {query}\n")
+        print(f"User said: {query}")
     except Exception as e:
-        print("I can't hear that!")
+        speak("Sorry, I can't hear that!")
+        print("Sorry, I can't hear that!")
         return ''
 
     return query
@@ -65,21 +66,31 @@ if __name__ == '__main__':
     wishMe()
     while True:
         query = takeCommand().lower()
+        if query == 'jarvis':
+            speak('Yes? Is there any thing you want?')
         query = query.replace('jarvis', '')
+
         if 'wikipedia' in query:
             speak("Searching Wikipedia..")
             query = query.replace('wikipedia', '')
             results = wikipedia.summary(query, sentences=2)
             speak(f"According to wikipedia: {results}")
-        elif 'open youtube' in query:
-            speak("Opening Youtube..")
-            webbrowser.open('https://www.youtube.com')
-        elif 'open google' in query:
-            speak("Opening Google..")
-            webbrowser.open('https://www.google.com')
-        elif 'open stack overflow' in query:
-            speak("Opening Stack Overflow..")
-            webbrowser.open('https://www.stackoverflow.com')
+        elif 'open browser' in query:
+            speak("Opening Your default browser..")
+            filePath = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+            os.startfile(filePath)
+        elif 'open android studio' in query:
+            speak("Opening Android Studio..")
+            filePath = "C:\\Program Files\\Android\\Android Studio\\bin\\studio64.exe"
+            os.startfile(filePath)
+        elif 'open ' in query:
+            query = query.split('open ')
+            query = query[1]
+            query = query.split(' ')
+            query = query[0]
+            speak(f"Opening {query}")
+            url = f"www.{query}.com"
+            webbrowser.open(url)
         elif 'play music' in query:
             speak("Playing Music..")
             music_dir = 'C:\\Users\\sagar\\OneDrive\\Documents'
@@ -88,9 +99,6 @@ if __name__ == '__main__':
         elif 'time' in query:
             curTime = datetime.datetime.now().strftime('%H:%M:%S')
             speak(curTime)
-        elif 'open browser' in query:
-            filePath = "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-            os.startfile(filePath)
         elif 'email to sagar' in query:
             try:
                 speak("What do you want to write?")
@@ -102,12 +110,24 @@ if __name__ == '__main__':
                 print(e)
                 speak("Can't send your message\nPlease try again after sometime.")
         elif 'my' in query and 'name' in query:
-            speak("Your name is Sagar Malhotra")
+            speak("Sir, Your name is Sagar Malhotra")
+        elif 'intro' in query or 'introduction' in query:
+            speak("Hi. I'm Jarvis, The Artificial Intelligent Software Program. Speed 1 terahertz, memory 1 zetabyte. "
+                  "Hmm, Don't panic, that's just a flex "
+                  "Introduction. I am still a basic Python Program created by Sagar. But, who knows When we "
+                  "can rule this world, haha.")
         elif 'exit' in query or 'quit' in query or 'sleep' in query or 'power off' in query or 'so jao' in query:
-            speak('Powering off...')
+            speak('So, Is that everything you want? You know what? I am going now. Bye .')
             break
+        elif 'joke' in query:
+            speak("Currently I can't do that, Is that any lesser than a joke?")
+            pass
+            # use joke api
         else:
             if query != '':
+                query = query.replace('what is', '')
+                query = query.replace('google for', '')
+                query = query.replace('on google', '')
                 query = query.replace('google', '')
                 query = query.replace('search', '')
                 speak(f"Searching google for {query}")
