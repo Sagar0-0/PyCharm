@@ -70,7 +70,10 @@ if __name__ == '__main__':
             speak('Yes? Is there any thing you want?')
         query = query.replace('jarvis', '')
 
-        if 'wikipedia' in query:
+        if 'say' in query:
+            query = query.replace('say', '')
+            speak(query)
+        elif 'wikipedia' in query:
             speak("Searching Wikipedia..")
             query = query.replace('wikipedia', '')
             results = wikipedia.summary(query, sentences=2)
@@ -120,8 +123,7 @@ if __name__ == '__main__':
             speak('So, Is that everything you want? You know what? I am going now. Bye .')
             break
         elif 'joke' in query:
-            speak("Currently I can't do that, Is that any lesser than a joke?")
-            pass
+            speak("Currently I can't do that, Isn't that any lesser than a joke?")
             # use joke api
         else:
             if query != '':
